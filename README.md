@@ -14,15 +14,15 @@
 - ~~Ambient light sensor / 環境光センサー~~
 - ~~Proximity sensor / 近接センサー~~
 
-## OSC Messages
+## Message Identifier
 
-- Accelerometer: /acc
-- Barometer: /bro
-- Gyroscope: /gyr
-- Magnetometer: /mag
-- Pedometer: /ped
-- Face Detector: /fac
-- Bar Code Scanner: /bar
+- Accelerometer: acc
+- Barometer: bro
+- Gyroscope: gyr
+- Magnetometer: mag
+- Pedometer: ped
+- Face Detector: fac
+- Bar Code Scanner: bar
 
 ## Packages
 
