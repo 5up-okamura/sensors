@@ -24,7 +24,7 @@ export default function BarometerScreen() {
     Barometer.setUpdateInterval(interval)
 
   // Send message
-  socket.current?.send({ bro: { ...data } })
+  socket.current?.send({ id: 'bro', ...data })
 
   return (
     <Template subscribe={_subscribe} setUpdateInterval={_setUpdateInterval}>

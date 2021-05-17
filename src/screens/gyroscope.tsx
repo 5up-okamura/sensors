@@ -20,7 +20,7 @@ export default function GyroscopeScreen() {
     Gyroscope.setUpdateInterval(interval)
 
   // Send message
-  socket.current?.send({ gyr: { ...data } })
+  socket.current?.send({ id: 'gyr', ...data })
 
   return (
     <Template subscribe={_subscribe} setUpdateInterval={_setUpdateInterval}>

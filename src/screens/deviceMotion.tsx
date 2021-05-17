@@ -24,7 +24,7 @@ export default function DeviceMotionScreen() {
   const rotation = measurement?.rotation
 
   // Send message
-  socket.current?.send({ mot: { ...measurement } })
+  socket.current?.send({ id: 'mot', ...measurement })
 
   return (
     <Template subscribe={_subscribe} setUpdateInterval={_setUpdateInterval}>

@@ -37,7 +37,7 @@ class Socket_ extends React.PureComponent<Props, State> {
   send = (object: Object) => {
     if (!this.state.connected) return
     const message = JSON.stringify(object)
-    console.log('[send]', message)
+    // console.log('[send]', message)
     this.socket?.send(message)
   }
 

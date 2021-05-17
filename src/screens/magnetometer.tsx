@@ -20,7 +20,7 @@ export default function MagnetometerScreen() {
     Magnetometer.setUpdateInterval(interval)
 
   // Send message
-  socket.current?.send({ mag: { ...data } })
+  socket.current?.send({ id: 'mag', ...data })
 
   return (
     <Template subscribe={_subscribe} setUpdateInterval={_setUpdateInterval}>

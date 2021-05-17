@@ -42,7 +42,7 @@ export default function PedometerScreen() {
   }
 
   // Send message
-  socket.current?.send({ ped: pastStepCount })
+  socket.current?.send({ id: 'ped', step: pastStepCount })
 
   return (
     <Template subscribe={_subscribe}>

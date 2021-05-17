@@ -20,7 +20,7 @@ export default function AccelerometerScreen() {
     Accelerometer.setUpdateInterval(interval)
 
   // Send message
-  socket.current?.send({ acc: { ...data } })
+  socket.current?.send({ id: 'acc', ...data })
 
   return (
     <Template subscribe={_subscribe} setUpdateInterval={_setUpdateInterval}>

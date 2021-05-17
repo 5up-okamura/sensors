@@ -40,7 +40,7 @@ export default function FaceDetectorScreen() {
     const smiling = face.smilingProbability
     const leftEye = face.leftEyeOpenProbability
     const rightEye = face.rightEyeOpenProbability
-    socket.current?.send({ fac: { smiling, leftEye, rightEye } })
+    socket.current?.send({ id: 'fac', smiling, leftEye, rightEye })
   }
 
   return (
