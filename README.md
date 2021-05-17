@@ -18,6 +18,7 @@
 
 - Accelerometer: acc
 - Barometer: bro
+- DeviceMotion: mot
 - Gyroscope: gyr
 - Magnetometer: mag
 - Pedometer: ped

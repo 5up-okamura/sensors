@@ -26,7 +26,7 @@ export default function BarCodeScannerScreen() {
   }
 
   // Send message
-  socket.current?.send(result)
+  result && socket.current?.send({ bar: result })
 
   return (
     <Template2
