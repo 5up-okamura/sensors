@@ -6,6 +6,11 @@ import { Context } from '../context'
 
 const TopScreen: React.FC<StackScreenProps<any>> = ({ navigation }) => {
   const { state, dispatch } = React.useContext(Context)
+
+  React.useLayoutEffect(() => {
+    navigation.setOptions({ headerTitle: 'Sensors (2021/12/21)' })
+  }, [])
+
   const onPress = (title: string) => navigation.navigate(title)
 
   const setAddress = (address: string) => {

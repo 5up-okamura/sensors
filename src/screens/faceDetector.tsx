@@ -27,20 +27,13 @@ export default function FaceDetectorScreen() {
     }
   }
 
-  const probability = (result?.faces || [])
-    .map(
-      (v) =>
-        `smiling: ${v.smilingProbability}\nleftEyeOpen: ${v.leftEyeOpenProbability}\nrightEyeOpen: ${v.rightEyeOpenProbability}\n`
-    )
+  const facesInfo = (result?.faces || [])
+    .map((v, i) => `face${i + 1}: ${JSON.stringify(v)}\n`)
     .join('\n')
 
   // Send message
   if (result?.faces.length) {
-    const face = result.faces[0]
-    const smiling = face.smilingProbability
-    const leftEye = face.leftEyeOpenProbability
-    const rightEye = face.rightEyeOpenProbability
-    socket.current?.send({ id: 'fac', smiling, leftEye, rightEye })
+    socket.current?.send({ id: 'fac', faces: result.faces })
   }
 
   return (
@@ -49,7 +42,7 @@ export default function FaceDetectorScreen() {
       subscribed={subscribed}
       setSubscribed={setSubscribed}
       setUpdateInterval={setUpdateInterval}
-      render={<Text>{probability}</Text>}
+      render={<Text>{facesInfo}</Text>}
     >
       <Camera
         style={StyleSheet.absoluteFillObject}
