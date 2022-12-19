@@ -2,7 +2,8 @@
   "expo": {
     "name": "sensors",
     "slug": "sensors",
-    "version": "1.0.1",
+    "platforms": ["ios", "android"],
+    "version": "1.0.2",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -11,7 +12,8 @@
       "backgroundColor": "#ffffff"
     },
     "updates": {
-      "fallbackToCacheTimeout": 0
+      "fallbackToCacheTimeout": 0,
+      "url": "https://u.expo.dev/086d4d70-0c99-4473-bf4d-cf1a8fe3f400"
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
@@ -25,6 +27,14 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "086d4d70-0c99-4473-bf4d-cf1a8fe3f400"
+      }
+    },
+    "runtimeVersion": {
+      "policy": "sdkVersion"
     }
   }
 }

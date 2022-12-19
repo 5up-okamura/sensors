@@ -17,6 +17,7 @@
     "expo-face-detector": "~12.0.0",
     "expo-sensors": "~12.0.1",
     "expo-status-bar": "~1.4.2",
+    "expo-updates": "~0.15.6",
     "lodash": "^4.17.21",
     "react": "18.1.0",
     "react-dom": "18.1.0",
