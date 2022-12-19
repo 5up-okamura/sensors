@@ -2,10 +2,11 @@
 
 import React, { useState } from 'react'
 import { StyleSheet } from 'react-native'
-import { Camera, FaceDetectionResult } from 'expo-camera'
+import { Camera, CameraType, FaceDetectionResult } from 'expo-camera'
 import * as FaceDetector from 'expo-face-detector'
 import { View, Text } from 'react-native'
 import { Template2, INTERVAL_FAST } from './template'
+import { Button } from '../components/button'
 import Socket from '../socket'
 import _ from 'lodash'
 
@@ -14,6 +15,7 @@ export default function FaceDetectorScreen() {
   const [subscribed, setSubscribed] = useState(true)
   const [updateInterval, setUpdateInterval] = useState(INTERVAL_FAST)
   const [result, setResult] = useState<FaceDetectionResult>()
+  const [type, setType] = useState<CameraType>(CameraType.front)
 
   const _requestPermissions = async () =>
     new Promise<boolean>(async (resolve, _) => {
@@ -25,6 +27,14 @@ export default function FaceDetectorScreen() {
     if (!_.isEqual(result, newResult)) {
       setResult(newResult)
     }
+  }
+
+  const _onPressFront = () => {
+    setType(CameraType.front)
+  }
+
+  const _onPressBack = () => {
+    setType(CameraType.back)
   }
 
   const facesInfo = (result?.faces || [])
@@ -46,6 +56,7 @@ export default function FaceDetectorScreen() {
     >
       <Camera
         style={StyleSheet.absoluteFillObject}
+        type={type}
         onFacesDetected={subscribed ? _onDetected : undefined}
         faceDetectorSettings={{
           mode: FaceDetector.FaceDetectorMode.fast,
@@ -57,6 +68,10 @@ export default function FaceDetectorScreen() {
       />
       <View style={{ margin: 8 }}>
         <Socket ref={socket} />
+      </View>
+      <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
+        <Button title="Front" onPress={_onPressFront} />
+        <Button title="Back" onPress={_onPressBack} />
       </View>
     </Template2>
   )
