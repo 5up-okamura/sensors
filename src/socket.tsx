@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react'
-import { View, Text } from 'react-native-ui-lib'
+import { View, Text, StyleSheet } from 'react-native'
 import { Context } from './context'
 
 type Props = {
@@ -45,11 +45,9 @@ class Socket_ extends React.PureComponent<Props, State> {
     const { connected } = this.state
     const backgroundColor = connected ? 'green' : 'red'
     return (
-      <View row centerV>
-        <View
-          style={{ backgroundColor, width: 16, height: 16, borderRadius: 8 }}
-        />
-        <Text margin-8>{connected ? 'ON' : 'OFF'}</Text>
+      <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+        <View style={[styles.dot, { backgroundColor }]} />
+        <Text style={{ margin: 8 }}>{connected ? 'ON' : 'OFF'}</Text>
       </View>
     )
   }
@@ -59,6 +57,13 @@ const Socket = forwardRef((props, ref) => {
   const { state } = React.useContext(Context)
   // @ts-ignore
   return <Socket_ {...props} ref={ref} host={state.address} />
+})
+
+/**
+ * styles
+ */
+const styles = StyleSheet.create({
+  dot: { width: 16, height: 16, borderRadius: 8 },
 })
 
 export default Socket

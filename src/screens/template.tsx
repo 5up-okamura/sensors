@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import { View, Text, Button, Checkbox } from 'react-native-ui-lib'
-import { Subscription } from '@unimodules/core'
+import { View, Text, StyleSheet } from 'react-native'
+import Checkbox from 'expo-checkbox'
+import { Subscription } from 'expo-modules-core'
+import { useSafeAreaInsets } from 'react-native-safe-area-context'
+import { Button } from '../components/button'
 
 export const INTERVAL_SLOW = 1000
 export const INTERVAL_FAST = 33
@@ -8,6 +11,7 @@ export const INTERVAL_FAST = 33
 type Props = {
   subscribe: () => Subscription
   setUpdateInterval?: (interval: number) => void
+  children: React.ReactNode
 }
 
 export const Template: React.FC<Props> = ({
@@ -15,6 +19,7 @@ export const Template: React.FC<Props> = ({
   setUpdateInterval,
   children,
 }) => {
+  const { bottom: paddingBottom } = useSafeAreaInsets()
   const [subscription, setSubscription] = useState<Subscription>()
 
   const _slow = () => {
@@ -44,11 +49,11 @@ export const Template: React.FC<Props> = ({
   }, [])
 
   return (
-    <View flex useSafeArea>
-      <View flex spread padding-30>
+    <View style={[styles.flex, { paddingBottom }]}>
+      <View style={[styles.flex, styles.spred, { padding: 30 }]}>
         {children}
         {/* Button container */}
-        <View row spread centerV>
+        <View style={[styles.row, styles.spred, { alignItems: 'center' }]}>
           {/* Subscribe button */}
           <Checkbox
             value={subscription != undefined}
@@ -57,8 +62,8 @@ export const Template: React.FC<Props> = ({
           {/* Update interval button */}
           {setUpdateInterval && (
             <>
-              <Button label="Slow" onPress={_slow} />
-              <Button label="Fast" onPress={_fast} />
+              <Button title="Slow" onPress={_slow} />
+              <Button title="Fast" onPress={_fast} />
             </>
           )}
         </View>
@@ -73,6 +78,7 @@ type Props2 = {
   subscribed: boolean
   setSubscribed: (subscribed: boolean) => void
   setUpdateInterval?: (interval: number) => void
+  children: React.ReactNode
 }
 
 export const Template2: React.FC<Props2> = ({
@@ -83,6 +89,7 @@ export const Template2: React.FC<Props2> = ({
   setUpdateInterval,
   children,
 }) => {
+  const { bottom: paddingBottom } = useSafeAreaInsets()
   const [hasPermission, setHasPermission] = useState<boolean>()
 
   useEffect(() => {
@@ -102,32 +109,38 @@ export const Template2: React.FC<Props2> = ({
 
   if (hasPermission == undefined) {
     return (
-      <View flex center>
+      <View style={[styles.flex, styles.center]}>
         <Text>Requesting for camera permission</Text>
       </View>
     )
   } else if (hasPermission == false) {
     return (
-      <View flex center>
+      <View style={[styles.flex, styles.center]}>
         <Text>No access to camera</Text>
       </View>
     )
   }
 
   return (
-    <View flex useSafeArea>
+    <View style={[styles.flex, { paddingBottom }]}>
       {children}
-      <View flex spread padding-30>
+      <View style={[styles.flex, styles.spred, { padding: 30 }]}>
         {render}
         {/* Button container */}
-        <View row spread centerV paddingB-30>
+        <View
+          style={[
+            styles.row,
+            styles.spred,
+            { alignItems: 'center', paddingBottom: 30 },
+          ]}
+        >
           {/* Subscribe button */}
           <Checkbox value={subscribed} onValueChange={setSubscribed} />
           {/* Update interval button */}
           {setUpdateInterval && (
             <>
-              <Button label="Slow" onPress={_slow} />
-              <Button label="Fast" onPress={_fast} />
+              <Button title="Slow" onPress={_slow} />
+              <Button title="Fast" onPress={_fast} />
             </>
           )}
         </View>
@@ -135,3 +148,14 @@ export const Template2: React.FC<Props2> = ({
     </View>
   )
 }
+
+/**
+ * styles
+ */
+const styles = StyleSheet.create({
+  flex: { flex: 1 },
+  row: { flexDirection: 'row' },
+  center: { justifyContent: 'center', alignItems: 'center' },
+  spred: { justifyContent: 'space-between' },
+  button: {},
+})

@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import { StyleSheet } from 'react-native'
 import { Camera, FaceDetectionResult } from 'expo-camera'
 import * as FaceDetector from 'expo-face-detector'
-import { View, Text } from 'react-native-ui-lib'
+import { View, Text } from 'react-native'
 import { Template2, INTERVAL_FAST } from './template'
 import Socket from '../socket'
 import _ from 'lodash'
@@ -17,7 +17,7 @@ export default function FaceDetectorScreen() {
 
   const _requestPermissions = async () =>
     new Promise<boolean>(async (resolve, _) => {
-      const { status } = await Camera.requestPermissionsAsync()
+      const { status } = await Camera.requestCameraPermissionsAsync()
       resolve(status == 'granted')
     })
 
@@ -46,17 +46,16 @@ export default function FaceDetectorScreen() {
     >
       <Camera
         style={StyleSheet.absoluteFillObject}
-        type="front"
         onFacesDetected={subscribed ? _onDetected : undefined}
         faceDetectorSettings={{
-          mode: FaceDetector.Constants.Mode.fast,
-          detectLandmarks: FaceDetector.Constants.Landmarks.none,
-          runClassifications: FaceDetector.Constants.Classifications.all,
+          mode: FaceDetector.FaceDetectorMode.fast,
+          detectLandmarks: FaceDetector.FaceDetectorLandmarks.none,
+          runClassifications: FaceDetector.FaceDetectorClassifications.all,
           minDetectionInterval: updateInterval,
           tracking: false,
         }}
       />
-      <View margin-8>
+      <View style={{ margin: 8 }}>
         <Socket ref={socket} />
       </View>
     </Template2>

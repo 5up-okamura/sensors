@@ -31,7 +31,11 @@ const initialState: State = { address: '' }
 export const Context = React.createContext({} as ContextType)
 const { Provider: Provider_ } = Context
 
-export const Provider: React.FC = ({ children }) => {
+type Props = {
+  children: React.ReactNode
+}
+
+export const Provider: React.FC<Props> = ({ children }) => {
   const [state, dispatch] = React.useReducer(reducer, initialState)
   return <Provider_ value={{ state, dispatch }}>{children}</Provider_>
 }

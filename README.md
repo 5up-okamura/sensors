@@ -33,7 +33,6 @@
 - expo-barcode-scanner / バーコードスキャナー
 - @react-navigation/native / 画面遷移
 - @react-navigation/stack / 画面遷移
-- react-native-ui-lib / UI ライブラリ
 
 ## License
 

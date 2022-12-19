@@ -1,8 +1,7 @@
 // https://docs.expo.io/versions/v41.0.0/sdk/barometer/
 
 import React, { useState } from 'react'
-import { Platform } from 'react-native'
-import { Text } from 'react-native-ui-lib'
+import { Platform, Text } from 'react-native'
 import { Barometer, BarometerMeasurement } from 'expo-sensors'
 import { Template } from './template'
 import Socket from '../socket'

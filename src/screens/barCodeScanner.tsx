@@ -1,8 +1,7 @@
 // https://docs.expo.io/versions/v41.0.0/sdk/bar-code-scanner/
 
 import React, { useState } from 'react'
-import { StyleSheet } from 'react-native'
-import { View, Text } from 'react-native-ui-lib'
+import { StyleSheet, View, Text } from 'react-native'
 import { BarCodeScanner, BarCodeEvent } from 'expo-barcode-scanner'
 import { Template2 } from './template'
 import Socket from '../socket'
@@ -39,7 +38,7 @@ export default function BarCodeScannerScreen() {
         onBarCodeScanned={subscribed ? _onDetected : undefined}
         style={StyleSheet.absoluteFillObject}
       />
-      <View padding-8>
+      <View style={{ padding: 8 }}>
         <Socket ref={socket} />
       </View>
     </Template2>

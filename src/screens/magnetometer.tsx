@@ -1,7 +1,7 @@
 // https://docs.expo.io/versions/v41.0.0/sdk/magnetometer/
 
 import React, { useState } from 'react'
-import { Text } from 'react-native-ui-lib'
+import { Text } from 'react-native'
 import { Magnetometer } from 'expo-sensors'
 import { Template } from './template'
 import Socket from '../socket'

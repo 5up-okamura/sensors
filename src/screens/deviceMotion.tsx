@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react'
 import { DeviceMotion, DeviceMotionMeasurement } from 'expo-sensors'
-import { Text } from 'react-native-ui-lib'
+import { Text } from 'react-native'
 import { Template } from './template'
 import Socket from '../socket'
 
