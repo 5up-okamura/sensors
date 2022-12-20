@@ -1,4 +1,4 @@
-// https://docs.expo.io/versions/v41.0.0/sdk/pedometer/
+// https://docs.expo.dev/versions/latest/sdk/pedometer/
 
 import React, { useState } from 'react'
 import { Text } from 'react-native'

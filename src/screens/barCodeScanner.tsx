@@ -1,4 +1,4 @@
-// https://docs.expo.io/versions/v41.0.0/sdk/bar-code-scanner/
+// https://docs.expo.dev/versions/latest/sdk/bar-code-scanner/
 
 import React, { useState } from 'react'
 import { StyleSheet, View, Text } from 'react-native'

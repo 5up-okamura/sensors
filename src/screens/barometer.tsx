@@ -1,4 +1,4 @@
-// https://docs.expo.io/versions/v41.0.0/sdk/barometer/
+// https://docs.expo.dev/versions/latest/sdk/barometer/
 
 import React, { useState } from 'react'
 import { Platform, Text } from 'react-native'

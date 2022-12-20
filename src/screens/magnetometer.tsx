@@ -1,4 +1,4 @@
-// https://docs.expo.io/versions/v41.0.0/sdk/magnetometer/
+// https://docs.expo.dev/versions/latest/sdk/magnetometer/
 
 import React, { useState } from 'react'
 import { Text } from 'react-native'

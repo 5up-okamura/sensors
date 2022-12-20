@@ -1,4 +1,4 @@
-// https://docs.expo.io/versions/v41.0.0/sdk/facedetector/
+// https://docs.expo.dev/versions/latest/sdk/facedetector/
 
 import React, { useState } from 'react'
 import { StyleSheet } from 'react-native'

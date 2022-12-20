@@ -1,4 +1,4 @@
-// https://docs.expo.io/versions/v41.0.0/sdk/devicemotion/
+// https://docs.expo.dev/versions/latest/sdk/devicemotion/
 
 import React, { useState } from 'react'
 import { DeviceMotion, DeviceMotionMeasurement } from 'expo-sensors'
