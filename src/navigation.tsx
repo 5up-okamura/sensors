@@ -4,6 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack'
 
 import TopScreen from './screens/top'
 import AccelerometerScreen from './screens/accelerometer'
+import AudioMeteringScreen from './screens/audioMetering'
 import BarCodeScannerScreen from './screens/barCodeScanner'
 import BarometerScreen from './screens/barometer'
 import DeviceMotionScreen from './screens/deviceMotion'
@@ -18,6 +19,7 @@ const AppNavigator = () => (
     <App.Navigator>
       <App.Screen name="Sensors" component={TopScreen} />
       <App.Screen name="Accelerometer" component={AccelerometerScreen} />
+      <App.Screen name="AudioMetering" component={AudioMeteringScreen} />
       <App.Screen name="BarCodeScanner" component={BarCodeScannerScreen} />
       <App.Screen name="Barometer" component={BarometerScreen} />
       <App.Screen name="DeviceMotion" component={DeviceMotionScreen} />

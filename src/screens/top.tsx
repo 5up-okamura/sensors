@@ -79,6 +79,7 @@ const List: React.FC<ListProps> = memo(({ title, onPress }) => {
  */
 const items: string[] = [
   'Accelerometer / 加速度',
+  'AudioMetering / 音量',
   'BarCodeScanner / バーコード',
   'Barometer / 気圧',
   'DeviceMotion / モーション',

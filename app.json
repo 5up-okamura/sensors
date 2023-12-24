@@ -4,7 +4,6 @@
     "slug": "sensors",
     "platforms": ["ios", "android"],
     "version": "1.0.2",
-    "sdkVersion": "47.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -18,6 +17,14 @@
       "url": "https://u.expo.dev/086d4d70-0c99-4473-bf4d-cf1a8fe3f400"
     },
     "assetBundlePatterns": ["**/*"],
+    "plugins": [
+      [
+        "expo-av",
+        {
+          "microphonePermission": "Allow $(PRODUCT_NAME) to access your microphone."
+        }
+      ]
+    ],
     "ios": {
       "supportsTablet": true
     },
