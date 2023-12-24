@@ -32,15 +32,20 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "permissions": [
+        "android.permission.RECORD_AUDIO",
+        "android.permission.MODIFY_AUDIO_SETTINGS"
+      ]
     },
+    "runtimeVersion": {
+      "policy": "sdkVersion"
+    },
+    "owner": "geidai",
     "extra": {
       "eas": {
         "projectId": "086d4d70-0c99-4473-bf4d-cf1a8fe3f400"
       }
-    },
-    "runtimeVersion": {
-      "policy": "sdkVersion"
     }
   }
 }
