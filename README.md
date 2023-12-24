@@ -18,6 +18,7 @@
 ## Message Identifier
 
 - Accelerometer: acc
+- AuidoMetering: aud
 - Barometer: bro
 - DeviceMotion: mot
 - Gyroscope: gyr
@@ -32,6 +33,7 @@
 - expo-camera / カメラ
 - expo-face-detector / 顔認識
 - expo-barcode-scanner / バーコードスキャナー
+- expo-av / 音量
 - @react-navigation/native / 画面遷移
 - @react-navigation/stack / 画面遷移
 
