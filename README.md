@@ -5,11 +5,12 @@
 ## Capabilities
 
 - Accelerometer / 加速度センサー
+- AuidoMetering / 音量
 - Barometer / 気圧計
 - Gyroscope / 3 軸ジャイロ
 - Magnetometer / 磁力計
 - Pedometer / 歩数計
-- Face Detector / 顔認識
+- ~~Face Detector / 顔認識~~
 - Bar Code Scanner / バーコードスキャナー
 - ~~Ambient light sensor / 環境光センサー~~
 - ~~Proximity sensor / 近接センサー~~
